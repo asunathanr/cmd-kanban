@@ -7,12 +7,12 @@ main = loop
 loop = do
   putStr "> "
   input <- getLine
-  putStrLn ((match input) input)
+  putStrLn ((match (head (words input))) (tail (words input)))
 
 match "help" = help
 match "version" = version
 match "add" = add
-match "rem" = rem
+match "del" = del
 match "view" = view
 match bad_cmd = defhandler
 
@@ -20,11 +20,11 @@ match bad_cmd = defhandler
 
 help args = "Help section for cmd-kanban."
 
-version args = "Version command for cmd-kanban."
+version args = "Version 0.01"
 
 add args = "Add command"
 
-rem args = "Remove command"
+del args = "Remove command"
 
 view args = "View command"
 
